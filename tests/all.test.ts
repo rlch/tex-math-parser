@@ -1,12 +1,12 @@
-import { parseTex, evaluateTex, Scope } from '../src/index';
-import { number, matrix, deepEqual } from 'mathjs';
+import { parseTex, evaluateTex, Scope } from "../src/index";
+import { number, matrix, deepEqual } from "mathjs";
 
 function evaluate(texStr: string, scope?: Scope) {
   return number(evaluateTex(texStr).evaluated);
 }
 
 // this is the example shown in the README
-test('evaluates full expression', () => {
+test("evaluates full expression", () => {
   const expected = matrix([-22.812481734548864, -33.89173627896382]);
   const actual = evaluate(String.raw`
     \begin{bmatrix}
@@ -25,5 +25,6 @@ test('evaluates full expression', () => {
       \sin\left(\frac{\pi}{6}\right)
     \end{bmatrix}`);
 
-    expect(deepEqual(actual, expected)).toBe(true);
+  expect(deepEqual(actual, expected)).toBe(true);
 });
+
